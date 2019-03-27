@@ -21,12 +21,15 @@ while True:
         cv2.rectangle(frame, (x ,y ), (x + width , y + height), (255,0,0), 2)
         
 
-        # 将头像保存到 images 文件夹下面
-        # 可以多收集几个人的
-        # cv2.imwrite("./images/"+str(x)+".jpg")
+        
 
 
         cropImg = frame[y:y+height,x:x+width] # 截取头像
+        
+        # 将头像保存到 images 文件夹下面
+        # 可以多收集几个人的
+        # cv2.imwrite("./images/"+str(x)+".jpg",cropImg)
+        
         ss = ct.contrast(cropImg) #进行对比
         cv2.putText(frame, ss, 
                     (x+20, y+20),
